@@ -11,5 +11,5 @@ public class Car {
     String id;
     String name;
     boolean toyota;
-    boolean canIuseit;
+    boolean canIUseIt;
 }

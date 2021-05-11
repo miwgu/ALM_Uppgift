@@ -1,7 +1,7 @@
 package com.example.springdocker.controller;
 
-import com.example.springdocker.model.Food;
-import com.example.springdocker.service.FoodService;
+import com.example.springdocker.model.Car;
+import com.example.springdocker.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +26,6 @@ public class CarController {
     }
 
     @GetMapping("/cars/usable")
-    public List<String> getUsablecars() {
-        return service.getUsablecars();
+    public List<String> getUsableCars() { return service.getUsableCars();
     }
 }

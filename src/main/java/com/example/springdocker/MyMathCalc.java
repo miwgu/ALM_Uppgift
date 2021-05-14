@@ -18,7 +18,8 @@ public class MyMathCalc {
     }
 
     public double divide (int a, int b){
-
-        return a/b;
+        if(b ==0)
+            throw new ArithmeticException ("Cannot divide by zero (Infinity)");
+        return (double) a/(double) b;
     }
 }

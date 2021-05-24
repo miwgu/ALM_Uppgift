@@ -19,5 +19,5 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name:Build Jar
-        run:mvn test
+      - name: Build Jar
+        run: mvn test

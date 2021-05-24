@@ -5,6 +5,7 @@ on:
 
 jobs:
   build_test:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -32,9 +33,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
-
-      -name: Upload Artifact
-       uses: actions/upload-artifact@v2
-       with:
-        name: app.jar
-        path: target/*.jar

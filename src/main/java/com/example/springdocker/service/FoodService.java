@@ -3,7 +3,9 @@ package com.example.springdocker.service;
 import com.example.springdocker.model.Food;
 import com.example.springdocker.repository.FoodRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,8 +19,14 @@ public class FoodService {
         return repository.findAll();
     }
 
-    public void saveNewFood(Food food) {
-        repository.save(food);
+    public Food saveNewFood(Food food) {
+        //Add the food exists or not (repository)
+        boolean exist = repository.existsFoodByNameAndDeliciousAndCanICookIt(food.getName(),food.isDelicious(), food.isCanICookIt());
+        if(exist){
+            throw  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Food already exist");
+        }
+
+        return repository.save(food);
     }
 
     public List<String> getCookableFoods() {
